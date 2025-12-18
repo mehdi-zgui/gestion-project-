@@ -6,12 +6,14 @@ import bcrypt
 from werkzeug.utils import secure_filename
 import os
 from datetime import datetime
+from cachelib import FileSystemCache
 
 
 app = Flask(__name__)
 CORS(app, resources={r"/api/*": {"origins": "http://localhost:3000"}})
-app.config['SECRET_KEY'] = 'your_secret_key'
-app.config['SESSION_TYPE'] = 'filesystem'
+
+app.config["SESSION_TYPE"] = "cachelib"
+app.config["SESSION_CACHELIB"] = FileSystemCache("./flask_session", threshold=500)
 Session(app)
 
 UPLOAD_FOLDER = os.path.join('uploads')# Folder to store uploaded images
