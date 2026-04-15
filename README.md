@@ -59,9 +59,6 @@ Elle facilite la **planification, le suivi et la gestion des ressources** pour l
 ## ⚙️ Installation
 
 
-# Clone du projet
-git clone https://github.com/your-username/project-name.git
-
 # Backend
 cd backend
 pip install -r requirements.txt
